@@ -1,14 +1,16 @@
 // CONFIG. MODULES \\
 import express from 'express';
 
+import { categoriesRoutes } from './routes/categories.routes';
+
 // CONFIG. \\
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
+
 // CONFIG. ROUTES \\
-app.get('/', (req, res) => {
-  return res.json({ message: 'hello world' });
-});
+app.use(categoriesRoutes);
 
 // START SERVER \\
 app.listen(PORT, () => {
