@@ -7,10 +7,11 @@ import { categoriesRoutes } from './routes/categories.routes';
 const app = express();
 const PORT = 3000;
 
+// CONFIG JSON \\
 app.use(express.json());
 
 // CONFIG. ROUTES \\
-app.use(categoriesRoutes);
+app.use("/categories", categoriesRoutes);
 
 // START SERVER \\
 app.listen(PORT, () => {
