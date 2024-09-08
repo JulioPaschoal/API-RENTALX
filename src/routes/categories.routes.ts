@@ -1,8 +1,7 @@
 // CONF. MODULES \\
 import { Router } from 'express';
-import { CategoriesRepository } from '../repositories/CategoriesRepository';
-import { Category } from '../model/Category';
 
+import { CategoriesRepository } from '../repositories/CategoriesRepository';
 
 // CONF \\
 const categoriesRoutes = Router();
@@ -11,7 +10,13 @@ const categoriesRepository = new CategoriesRepository();
 // ROUTER DE CREATE \\
 categoriesRoutes.post('/', (req, res) => {
   const { name, description } = req.body;
-  categoriesRepository.create({name, description});
+  // VALIDATION CATEGORY \\
+  const categoryAlreadyExists = categoriesRepository.findByName(name);
+  if (categoryAlreadyExists) {
+    return res.status(400).json({ error: 'Category already exists' });
+  }
+
+  categoriesRepository.create({ name, description });
 
   return res.status(201).send();
 });
