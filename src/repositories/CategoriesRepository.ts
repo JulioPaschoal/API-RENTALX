@@ -24,6 +24,11 @@ class CategoriesRepository {
     });
     this.categories.push( category );
   }
+
+  // LIST CATEGORY \\
+  list(): Category[]{
+    return this.categories;
+  }
 }
 
 // EXPORT REPOSITORY \\

@@ -1,6 +1,7 @@
 // CONF. MODULES \\
 import { Router } from 'express';
 import { CategoriesRepository } from '../repositories/CategoriesRepository';
+import { Category } from '../model/Category';
 
 
 // CONF \\
@@ -13,6 +14,13 @@ categoriesRoutes.post('/', (req, res) => {
   categoriesRepository.create({name, description});
 
   return res.status(201).send();
+});
+
+// ROUTER DE LIST \\
+categoriesRoutes.get('/', (req, res) => {
+  const categories = categoriesRepository.list();
+
+  return res.json(categories);
 });
 
 // EXPORT ROUTES \\
