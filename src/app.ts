@@ -1,19 +1,19 @@
-// CONFIG. MODULES \\
+// ---------- CONFIG. MODULES ---------- \\
 import express from 'express';
 
 import { categoriesRoutes } from './routes/categories.routes';
 
-// CONFIG. \\
+// ---------- CONFIG.---------- \\
 const app = express();
 const PORT = 3000;
 
-// CONFIG JSON \\
+// ---------- CONFIG JSON ---------- \\
 app.use(express.json());
 
-// CONFIG. ROUTES \\
-app.use("/categories", categoriesRoutes);
+// ---------- CONFIG. ROUTES ---------- \\
+app.use('/categories', categoriesRoutes);
 
-// START SERVER \\
+// ---------- START SERVER ---------- \\
 app.listen(PORT, () => {
   console.log(`🚀 http://localhost:${PORT}`);
 });

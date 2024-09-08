@@ -1,12 +1,12 @@
 import { Category } from '../model/Category';
 
-// DTO => DATA TRANSFER  OBJECT \\
+// ---------- DTO => DATA TRANSFER  OBJECT ---------- \\
 interface ICreateCategoryDTO {
   name: string;
   description: string;
 }
 
-// CONFIG. REPOSITORY \\
+// ---------- CONFIG. REPOSITORY ---------- \\
 class CategoriesRepository {
   private categories: Category[];
 
@@ -14,7 +14,7 @@ class CategoriesRepository {
     this.categories = [];
   }
 
-  // CREATE CATEGORY \\
+  // ---------- CREATE CATEGORY ---------- \\
   create({ name, description }: ICreateCategoryDTO): void {
     const category = new Category();
     Object.assign(category, {
@@ -25,17 +25,17 @@ class CategoriesRepository {
     this.categories.push(category);
   }
 
-  // LIST CATEGORY \\
+  // ---------- LIST CATEGORY ---------- \\
   list(): Category[] {
     return this.categories;
   }
 
-  // VALIDATE CATEGORY \\
+  // ---------- VALIDATE CATEGORY ---------- \\
   findByName(name: string): Category {
     const category = this.categories.find(category => category.name === name);
     return category;
   }
 }
 
-// EXPORT REPOSITORY \\
+// ---------- EXPORT REPOSITORY ---------- \\
 export { CategoriesRepository };
