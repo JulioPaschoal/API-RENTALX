@@ -5,7 +5,7 @@ import {
 } from './ICategoriesRepository';
 
 // ---------- CONFIG. POSTGRES REPOSITORY ---------- \\
-class PostgresCategoriesRespository implements ICategoriesRepository {
+class PostgresCategoriesRepository implements ICategoriesRepository {
   // ---------- IMPLEMENTATION ---------- \\
   findByName(name: string): Category {
     console.log(name);
@@ -19,4 +19,4 @@ class PostgresCategoriesRespository implements ICategoriesRepository {
   }
 }
 
-export { PostgresCategoriesRespository };
+export { PostgresCategoriesRepository };
