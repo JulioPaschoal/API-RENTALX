@@ -12,6 +12,7 @@ app.use(express.json());
 
 // ---------- CONFIG. ROUTES ---------- \\
 app.use('/categories', categoriesRoutes);
+app.use('/specifications', categoriesRoutes);
 
 // ---------- START SERVER ---------- \\
 app.listen(PORT, () => {
